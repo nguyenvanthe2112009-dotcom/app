@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Upload, Sparkles, Image as ImageIcon, Download, Youtube, Wand2, RefreshCw, LayoutTemplate, X, Plus, Key, ExternalLink, LogOut } from 'lucide-react';
-import { generateThumbnail } from './services/geminiService';
-import Button from './components/Button';
-import { TextInput, TextArea, SelectInput } from './components/Input';
-import { ThumbnailState } from './types';
+import { generateThumbnail } from './services/geminiService.js';
+import Button from './components/Button.js';
+import { TextInput, TextArea, SelectInput } from './components/Input.js';
+import { ThumbnailState } from './types.js';
 
 const PRESET_STYLES = [
   { value: "Professional, High Quality, Viral YouTube Thumbnail Style, Eye-catching composition", label: "Tự động (Auto)" },
@@ -206,7 +206,7 @@ const App = () => {
 
   // --- RENDER MAIN APP ---
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-yellow-500/30 font-sans">
+    <div className="min-h-screen bg-black text-white selection:bg-yellow-500/30 font-sans flex flex-col">
       <header className="border-b border-zinc-800 bg-zinc-900/50 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -227,7 +227,7 @@ const App = () => {
         </div>
       </header>
 
-      <main className="max-w-7xl mx-auto px-6 py-10">
+      <main className="max-w-7xl mx-auto px-6 py-10 w-full flex-grow">
         <div className="flex justify-center mb-10">
           <div className="relative group">
             <div className="absolute inset-0 bg-yellow-500 blur-2xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity duration-500"></div>
@@ -448,9 +448,26 @@ const App = () => {
               </div>
             </div>
           </div>
-
         </div>
       </main>
+
+      <footer className="text-center py-6 text-sm text-zinc-600 border-t border-zinc-800 mt-10">
+        <div className="space-y-1">
+          <p>
+            Công cụ được phát triển bởi{' '}
+            <a href="https://vantheweb.com" target="_blank" rel="noopener noreferrer" className="font-semibold text-yellow-500 hover:underline">
+              Văn Thế Web
+            </a>{' '}
+            sử dụng Gemini AI.
+          </p>
+          <p>
+            Xem mã nguồn trên{' '}
+            <a href="https://github.com/vantheweb/ytb-thumbnail-generator" target="_blank" rel="noopener noreferrer" className="font-semibold text-yellow-500 hover:underline">
+              GitHub
+            </a>.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
