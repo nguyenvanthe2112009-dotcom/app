@@ -1,8 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Upload, Sparkles, Image as ImageIcon, Download, Youtube, Wand2, RefreshCw, LayoutTemplate, X, Plus, Key, ExternalLink, LogOut } from 'lucide-react';
-import { generateThumbnail } from './services/geminiService.js';
-import Button from './components/Button.js';
-import { TextInput, TextArea, SelectInput } from './components/Input.js';
+import { generateThumbnail } from './geminiService.js';
+import Button from './Button.js';
+import { TextInput, TextArea, SelectInput } from './Input.js';
 import { ThumbnailState } from './types.js';
 
 const PRESET_STYLES = [
